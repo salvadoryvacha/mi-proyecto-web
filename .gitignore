@@ -36,3 +36,4 @@ out/
 # Archivos de cache
 .cache/
 .parcel-cache/
+.vercel

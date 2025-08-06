@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const contactForm = document.querySelector('.contact-form');
-    const ctaButton = document.querySelector('.cta-button');
     
     // Menú hamburguesa para móviles
     if (hamburger && navMenu) {
@@ -76,21 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Botón CTA
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function() {
-            const serviciosSection = document.querySelector('#servicios');
-            if (serviciosSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = serviciosSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
+    // Animación de los avatares
+    const avatarCards = document.querySelectorAll('.avatar-card');
+    avatarCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('animate-in');
+    });
     
     // Animaciones al hacer scroll
     const observerOptions = {
@@ -225,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Efecto de escritura para el título principal
-    const heroTitle = document.querySelector('.hero-content h1');
+    const heroTitle = document.querySelector('.main-title');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
         heroTitle.textContent = '';
